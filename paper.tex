@@ -1,0 +1,242 @@
+\documentclass[pdftex,twocolumn,10pt,letterpaper]{extarticle}
+
+%%% Set these variables appropriately
+%%%
+%% Note:  Authors is hardcoded below, this line only used for the PDF info
+\newcommand{\AUTHORS}{Authors}
+\newcommand{\TITLE}{Title}
+\newcommand{\KEYWORDS}{Put your keywords here}
+\newcommand{\CONFERENCE}{Somewhere}
+\newcommand{\PAGENUMBERS}{yes}       % "yes" or "no"
+\newcommand{\COLOR}{yes}
+\newcommand{\showComments}{yes}
+\newcommand{\comment}[1]{}
+\newcommand{\onlyAbstract}{no}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%
+%%%  Page Setup
+%%%
+\special{papersize=8.5in,11in}
+\setlength{\pdfpagewidth}{8.5in}
+\setlength{\pdfpageheight}{11in}
+
+\usepackage{ifthen}
+\ifthenelse{\equal{\PAGENUMBERS}{yes}}{%
+\usepackage[nohead,
+            left=0.75in,right=0.85in,top=0.75in,
+            footskip=0.5in,bottom=1in,     % Room for page numbers
+            columnsep=0.25in
+            ]{geometry}
+}{%
+\usepackage[noheadfoot,left=0.75in,right=0.85in,top=0.75in,
+            footskip=0.5in,bottom=1in,
+            columnsep=0.25in
+	    ]{geometry}
+}
+
+%%%
+%%%  Captions
+%%%
+\usepackage[font=bf]{caption}
+%%  Space between figure and caption (assuming caption
+%%  is below figure)
+%\usepackage[font=bf,aboveskip=0pt]{caption} % SPACE
+%%  Space between caption and body text of document
+%\addtolength{\textfloatsep}{-7pt} % SPACE
+
+%%%
+%%%  Section headings
+%%%
+\usepackage{titlesec}
+%\titlespacing{\paragraph}{0pt}{*1}{*1}      % SPACE
+%\usepackage[compact]{titlesec}              % SPACE
+%\titleformat{\section}%                     % IEEE/ACM: caps + period
+%  {\bf\large\uppercase}{\thesection.\quad}{0pt}{}
+
+%%%
+%%%  Lists
+%%%
+\usepackage{enumitem}
+\setlist{itemsep=0pt,parsep=0pt}             % more compact lists
+
+%%%
+%%%  Header / Footer
+%%%
+\usepackage{fancyhdr}
+\renewcommand{\headrulewidth}{0pt}
+
+\ifthenelse{\equal{\PAGENUMBERS}{yes}}{%
+  \pagestyle{plain}
+}{%
+  \pagestyle{empty}
+}
+
+%%%
+%%%  Bibliography
+%%%
+\usepackage[numbers]{natbib}
+
+%%%
+%%%  Footnotes / Endnotes
+%%%
+\interfootnotelinepenalty=10000  % Split footnotes are annoying
+
+% If you want endnodes, uncomment:
+%\usepackage{endnotes}
+%\usepackage{drafthead}
+%\let\footnote=\endnote
+
+%%%
+%%%  Tables
+%%%
+\usepackage{booktabs}
+\usepackage{color}
+\usepackage{colortbl}
+\usepackage{float}                           % Must appear before hyperref to
+                                             % avoid weird PDF compile issues
+
+%%%
+%%%  Fonts
+%%%
+\usepackage{mathptmx}                        % Times/Times-like math symbols
+\usepackage{courier}
+\usepackage[scaled=0.92]{helvet}
+
+%%%
+%%%  PDF setup
+%%%
+\ifthenelse{\equal{\COLOR}{yes}}{%
+  \usepackage[colorlinks]{hyperref}%         % for online version
+}{%
+  \usepackage[pdfborder={0 0 0}]{hyperref}%  % for paper (B&W) version
+}
+\usepackage{url}
+
+\hypersetup{%
+pdfauthor = {\AUTHORS},
+pdftitle = {\TITLE},
+pdfsubject = {\CONFERENCE},
+pdfkeywords = {\KEYWORDS},
+bookmarksopen = {true}
+}
+
+%%
+%% Figure placeholder macros
+%%
+
+\definecolor{placeholderbg}{rgb}{0.85,0.85,0.85}
+\newcommand{\placeholder}[1]{%
+\fcolorbox{black}{placeholderbg}{\parbox[top][1.5in][c]{0.95\columnwidth}{#1}}}
+
+
+%%%
+%%%  Misc
+%%%
+\usepackage[pdftex]{graphicx}
+\usepackage{soul}
+
+%\setlength{\parindent}{0pt}
+%\setlength{\parskip}{\baselineskip}
+
+%\clubpenalty=10000  % Don't allow orphans
+%\widowpenalty=10000 % Don't allow widows
+
+%%%
+%%%  To appear/appeared in text on title page
+%%%
+\usepackage[absolute]{textpos}
+\newcommand{\ToAppear}{%
+\begin{textblock*}{\textwidth}(0.95in,0.4in)
+\begin{flushright}
+    %\noindent{\fbox{\textsf{Under submission---please do not redistribute.}}}
+    %  --OR--
+    \noindent{\small To appear in \textit{Proceedings of the XYZ}\\
+    \noindent{\small \textit{Conference (XYZ'08)}, City, State, Month 2008}}
+    %  --OR--
+    %\noindent{\small In \textit{Proceedings of the XYZ}\\
+    %\noindent{\small \textit{Conference (XYZ'08)}, City, State, Month 2008}}
+\end{flushright}
+\end{textblock*}
+}
+
+%%%
+%%%  Sample ACM Copyright Block
+%%%
+\newfloat{acmcr}{b}{acmcr}
+\newcommand{\AcmCopyright}{%
+\begin{acmcr}
+\parbox[b]{20pc}{%
+\footnotesize
+Permission to make digital or hard copies of all or part of this work
+for personal or classroom use is granted without fee provided that
+copies are not made or distributed for profit or commercial advantage
+and that copies bear this notice and the full citation on the first
+page.  To copy otherwise, to republish, to post on servers or to
+redistribute to lists, requires prior specific permission and/or a fee.
+
+{\em Conference}, Month Date--Date, Year, Location\\
+Copyright 200X ACM X-XXXXX-XX-X/XX/XX ...\$5.00}
+\end{acmcr}}
+
+%%%
+%%%  Comments
+%%%
+\newcommand{\note}[2]{
+    \ifthenelse{\equal{\showComments}{yes}}{\textcolor{#1}{#2}}{}
+}
+
+% Change these to your own initials as you like...
+\newcommand{\author1}[1]{\note{blue}{Author1: #1}}
+\newcommand{\author2}[1]{\note{red}{Author2: #1}}
+\newcommand{\author3}[1]{\note{green}{Author3: #1}}
+
+\date{}
+\title{\textbf{\TITLE}}
+\author{{\large Authors}\\
+{\em Affiliations}}
+
+% This needs to be the last thing before \begin{document}
+%\usepackage{microtype}  % SPACE
+
+%%%%%%%%%%%%%%%%%%%%  START DOCUMENT  %%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\maketitle
+
+%\AcmCopyright
+%\ToAppear
+
+\input{abstract}
+\ifthenelse{\equal{\onlyAbstract}{no}}{%
+\input{intro}
+\input{design}
+\input{eval}
+\input{related}
+\input{concl}
+
+%\appendix
+%\input{appendix_sources}
+
+%\vspace{-0.1in}
+%\section*{Acknowledgments}
+% Comments for people we need to ack in the final version
+
+%% Bibliography
+\setlength{\bibsep}{2pt}
+\small 
+% \footnotesize % SPACE
+\bibliography{ref,rfc}
+\bibliographystyle{abbrvnat}
+%\bibliographystyle{abbrvnat_noaddr} % SPACE
+%\theendnotes % ENDNOTES
+}{% !onlyAbstract
+}
+
+\end{document}
+
+% Local Variables:
+% TeX-command-default: "LaTeX PDF"
+% End:
+

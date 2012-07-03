@@ -1,0 +1,23 @@
+The supplied Makefile uses a LaTeX build system called rubber,
+which _greatly_ simplifies the build process.  The hard way (multiple
+pdflatex/bibtex incantations) will also work. rubber is available at
+
+  http://www.pps.jussieu.fr/~beffara/soft/rubber/
+
+
+To build this paper, you'll want to symlink in the "ref.bib" and "rfc.bib"
+files from dave's biblio repository.  You can check those out of the
+subversion repository at
+
+  https://moo.cmcl.cs.cmu.edu/svn/biblio/
+
+A note:  The given Makefile tries to ensure that all fonts are embedded.
+You can double-check by running 'pdffonts' on the final paper.pdf or an
+individual figure.
+
+#
+# The skeleton for this paper comes from
+# https://moo.cmcl.cs.cmu.edu/svn/paper_skel
+# When editing paper_skel, please ensure that your changes are 
+# clean and apply to future papers in general, not just one
+# specific paper.
