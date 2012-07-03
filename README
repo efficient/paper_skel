@@ -17,7 +17,13 @@ individual figure.
 
 #
 # The skeleton for this paper comes from
-# https://moo.cmcl.cs.cmu.edu/svn/paper_skel
+# https://github.com/efficient/paper_skel.git
 # When editing paper_skel, please ensure that your changes are 
 # clean and apply to future papers in general, not just one
 # specific paper.
+
+Authors:
+Michael Kaminsky
+David G. Andersen
+A cast of thousands (okay, at least dozens!) of students and co-authors
+who've found bugs, made or suggested improvements, etc.
