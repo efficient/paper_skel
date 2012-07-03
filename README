@@ -2,7 +2,7 @@ The supplied Makefile uses a LaTeX build system called rubber,
 which _greatly_ simplifies the build process.  The hard way (multiple
 pdflatex/bibtex incantations) will also work. rubber is available at
 
-  http://www.pps.jussieu.fr/~beffara/soft/rubber/
+  https://launchpad.net/rubber/
 
 
 To build this paper, you'll want to symlink in the "ref.bib" and "rfc.bib"
