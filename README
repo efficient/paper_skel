@@ -1,15 +1,19 @@
+A basic, USENIX and ACM style compliant LaTeX paper skeleton.
+The default output looks like this:
+
+  http://www.cs.cmu.edu/~dga/paper_skel_lorem.pdf
+
+But is easily tweaked using the standard packages that are invoked
+in paper.tex.
+
 The supplied Makefile uses a LaTeX build system called rubber,
 which _greatly_ simplifies the build process.  The hard way (multiple
 pdflatex/bibtex incantations) will also work. rubber is available at
 
   https://launchpad.net/rubber/
 
-
-To build this paper, you'll want to symlink in the "ref.bib" and "rfc.bib"
-files from dave's biblio repository.  You can check those out of the
-subversion repository at
-
-  https://moo.cmcl.cs.cmu.edu/svn/biblio/
+This assumes that your biblio file is named 'ref.bib'.  Change in paper.tex
+as appropriate.
 
 A note:  The given Makefile tries to ensure that all fonts are embedded.
 You can double-check by running 'pdffonts' on the final paper.pdf or an
