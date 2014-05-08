@@ -15,6 +15,18 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
+%%%
+%%%  Fonts
+%%%
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{newtxtext,newtxmath}                        % Times/Times-like math symbols
+\usepackage{bm}
+\usepackage{courier}
+\usepackage[scaled=0.92]{helvet}
+
+
 %%%
 %%%  Page Setup
 %%%
@@ -98,13 +110,6 @@
                                              % avoid weird PDF compile issues
 
 %%%
-%%%  Fonts
-%%%
-\usepackage{mathptmx}                        % Times/Times-like math symbols
-\usepackage{courier}
-\usepackage[scaled=0.92]{helvet}
-
-%%%
 %%%  PDF setup
 %%%
 \ifthenelse{\equal{\COLOR}{yes}}{%
@@ -122,6 +127,13 @@ pdfkeywords = {\KEYWORDS},
 bookmarksopen = {true}
 }
 
+% Uncomment next line if your printer outputs black
+% boxes instead of drop shadows; older PDF interpreters
+% in printers can't handle those PDF 1.5 features
+%\pdfminorversion=3
+%\pdfobjcompresslevel=2
+
+
 %%
 %% Figure placeholder macros
 %%
@@ -136,6 +148,10 @@ bookmarksopen = {true}
 %%%
 \usepackage[pdftex]{graphicx}
 \usepackage{soul}
+% this allows \st and friends to work with citations
+\soulregister\cite7
+\soulregister\ref7
+\soulregister\pageref7
 
 %\setlength{\parindent}{0pt}
 %\setlength{\parskip}{\baselineskip}
@@ -224,7 +240,7 @@ Copyright 200X ACM X-XXXXX-XX-X/XX/XX ...\$5.00}
 % Comments for people we need to ack in the final version
 
 %% Bibliography
-\setlength{\bibsep}{2pt}
+\setlength{\bibsep}{2pt plus 1pt}  % plus 1pt seems to avoid widows/orphans
 \small 
 % \footnotesize % SPACE
 \bibliography{ref}
