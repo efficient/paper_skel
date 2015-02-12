@@ -64,8 +64,20 @@
 \usepackage{titlesec}
 %\titlespacing{\paragraph}{0pt}{*1}{*1}      % SPACE
 %\usepackage[compact]{titlesec}              % SPACE
-%\titleformat{\section}%                     % IEEE/ACM: caps + period
+
+%\titleformat{\section}%                     % ACM: caps + period (for 10pt doc)
 %  {\bf\large\uppercase}{\thesection.\quad}{0pt}{}
+
+%%% The following should mimic the 9pt ACM sig-alt style headings
+%%%
+%\titleformat{name=\section}%                 % ACM: caps + period (for 9pt doc)
+%  {\bf\LARGE\uppercase}{\thesection.\quad}{0pt}{}
+%\titleformat{name=\section,numberless}%      % ACM: for categores, etc.
+%  {\bf\LARGE}{}{0pt}{}[\vspace*{-2pt}]
+%\titleformat{\subsection}%                   % ACM
+%  {\bf\LARGE}{\thesubsection\quad}{0pt}{}
+%\titleformat{\subsubsection}%                % ACM
+%  {\it\Large}{\thesubsubsection\quad}{0pt}{}
 
 %%%
 %%%  Lists
