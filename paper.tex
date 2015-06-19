@@ -236,6 +236,12 @@ Copyright 200X ACM X-XXXXX-XX-X/XX/XX ...\$5.00}
 
 \maketitle
 
+\ifthenelse{\equal{\PAGENUMBERS}{yes}}{%
+  \thispagestyle{fancy}
+}{%
+  \thispagestyle{empty}
+}
+
 %\AcmCopyright
 %\ToAppear
 
