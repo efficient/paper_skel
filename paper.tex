@@ -142,6 +142,10 @@ pdfkeywords = {\KEYWORDS},
 bookmarksopen = {true}
 }
 
+% Anonymize figure inclusion
+\pdftrailerid{} %Remove ID
+\pdfsuppressptexinfo15 %Suppress PTEX.Fullbanner and info of imported PDFs
+
 % Uncomment next line if your printer outputs black
 % boxes instead of drop shadows; older PDF interpreters
 % in printers can't handle those PDF 1.5 features
